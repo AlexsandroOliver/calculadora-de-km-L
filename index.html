@@ -1,0 +1,31 @@
+<html>
+<head> 
+	<link rel="stylesheet" href="css/mine.css">
+	<title>Calculadora de Km/L</title>
+</head>
+<body>
+	<h1>Calculadora de Km/L</h1>
+	<form>
+		<label for="vdc">Valor do combustível por litro:</label>
+		<input type="number" step="0.01" id="vdc" name="vdc" required><br><br>
+		<label for="valor">Valor pago pelo combustivel em R$:</label>
+		<input type="number" step="0.01" id="valor" name="valor" required><br><br>
+		<label for="quilometragem">Valor de Kms rodados:</label>
+		<input type="number" step="0.01" id="quilometragem" name="quilometragem" required><br><br>
+		<button type="button" onclick="calcular()">Calcular</button>
+	</form>
+	<p id="resultado"></p>
+	<script>
+		function calcular() {
+			var vdc = parseFloat(document.getElementById("vdc").value);
+			var valor = parseFloat(document.getElementById("valor").value);
+			var quilometragem = parseFloat(document.getElementById("quilometragem").value);
+
+			var litros = valor / vdc;
+			var kmPorLitro = quilometragem / litros;
+
+			document.getElementById("resultado").innerHTML = "Valor de km por litro: " + kmPorLitro.toFixed(2);
+		}
+	</script>
+</body>
+</html>
